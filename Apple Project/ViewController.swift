@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -32,7 +33,26 @@ class ViewController: UIViewController {
             let data = try Data.init(contentsOf: url)
             //using JSONSerialization to  convert data object into serialized json
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-            print(json)
+            //print(json)
+            
+            guard let array = json as? [Any] else { return }
+            
+            for user in array {
+                guard let userDict = user as? [String: Any] else { return }
+                guard let profileId = userDict["_id"] as? Int else { print("not a double"); return }
+                guard let coordinates = userDict["coord"] as? [String: Double] else { return }
+                guard let latitude = coordinates["lat"] else { return }
+                guard let longitude = coordinates["lon"] else { return }
+                guard let country = userDict["country"] as? String else { return }
+                guard let city = userDict["name"] as? String else { return }
+                
+                print(profileId)
+                print(latitude)
+                print(longitude)
+                print(country)
+                print(city)
+                print(" ")
+            }
         } catch  {
             print(error)
         }
