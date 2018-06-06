@@ -12,6 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadJson()
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func downloadJson(){
         //ensuring we have a vaild path
         //create an if/let or guard statement to silence warning before running
         guard let path = Bundle.main.path(forResource: "cities", ofType: "json") else { return }
@@ -26,14 +36,6 @@ class ViewController: UIViewController {
         } catch  {
             print(error)
         }
-        
-        
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="myo-UJ-KSJ" detailTextLabel="pSy-Yi-AgI" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="rr4-1Z-k2E">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CitiesCell" textLabel="myo-UJ-KSJ" detailTextLabel="pSy-Yi-AgI" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="rr4-1Z-k2E" customClass="CitiesTableViewCell" customModule="Apple_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rr4-1Z-k2E" id="tCi-0t-mpK">
@@ -46,6 +46,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="pSy-Yi-AgI" id="XtN-qi-RPG"/>
+                                            <outlet property="countryLabel" destination="myo-UJ-KSJ" id="zmt-nY-atE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
