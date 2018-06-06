@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         
         do {
             let data = try Data.init(contentsOf: url)
+            //using JSONSerialization to  convert data object into serialized json
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
             print(json)
         } catch  {
