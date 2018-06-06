@@ -13,11 +13,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //ensuring we have a vaild path
-        let path = Bundle.main.path(forResource: "cities", ofType: "json")
-        //create an if/let or guard statement to silence warning before running 
-        if let path = path {
-            print(path)
+        //create an if/let or guard statement to silence warning before running
+        guard let path = Bundle.main.path(forResource: "cities", ofType: "json") else { return }
+        
+        let url = URL.init(fileURLWithPath: path)
+        
+        do {
+            let data = try Data.init(contentsOf: url)
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            print(json)
+        } catch  {
+            print(error)
         }
+        
+        
         
     }
 
