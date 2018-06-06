@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             
             for user in array {
                 guard let userDict = user as? [String: Any] else { return }
-                guard let profileId = userDict["_id"] as? Int else { print("not a double"); return }
+                guard let profileId = userDict["_id"] as? Int32 else { print("not a int"); return }
                 guard let coordinates = userDict["coord"] as? [String: Double] else { return }
                 guard let latitude = coordinates["lat"] else { return }
                 guard let longitude = coordinates["lon"] else { return }
