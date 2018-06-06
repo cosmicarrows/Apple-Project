@@ -12,7 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        //ensuring we have a vaild path
+        let path = Bundle.main.path(forResource: "cities", ofType: "json")
+        //create an if/let or guard statement to silence warning before running 
+        if let path = path {
+            print(path)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
