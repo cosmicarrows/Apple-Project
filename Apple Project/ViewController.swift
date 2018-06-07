@@ -49,6 +49,8 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
             }
             
             cities = testRun()
+            
+            currentCitiesArray = cities
 
             //console log cities for debugging purposes.  Remove this code before pushing to production.
             for plot in cities {
@@ -61,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return cities.count
+     return currentCitiesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
         
        
         
-        cell.locationLabel.text = "\(cities[indexPath.row].name), \(cities[indexPath.row].country)"
+        cell.locationLabel.text = "\(currentCitiesArray[indexPath.row].name), \(currentCitiesArray[indexPath.row].country)"
         
        
         
@@ -83,14 +85,12 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
     
     // Search Bar
     func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String){
-        print("text is being typed in")
         guard !searchText.isEmpty else {
             currentCitiesArray = cities
             tableView.reloadData()
             return
             
         }
-        
         currentCitiesArray = cities.filter({ city -> Bool in
             //guard let text = searchBar.text else { return false}
              return city.name.contains(searchText)
