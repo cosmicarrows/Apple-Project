@@ -26,14 +26,59 @@ import CoreLocation
 //}
 //
 
-struct City: Decodable {
+
+struct City: Codable, Comparable {
+    static func < (lhs: City, rhs: City) -> Bool {
+        if lhs._id < rhs._id {
+            return false
+        }
+        if lhs.coord.lat < rhs.coord.lat {
+            return false
+        }
+        if lhs.coord.lon < rhs.coord.lon {
+            return false
+        }
+        if lhs.country < rhs.country {
+            return false
+        }
+        if lhs.name < rhs.name {
+            return false
+        }
+        return true
+    }
+    
+   
+    static func == (lhs: City, rhs: City) -> Bool {
+        if lhs._id != rhs._id {
+            return false
+        }
+        if lhs.coord.lat != rhs.coord.lat {
+            return false
+        }
+        if lhs.coord.lon != rhs.coord.lon {
+            return false
+        }
+        if lhs.country != rhs.country {
+            return false
+        }
+        if lhs.name != rhs.name {
+            return false
+        }
+        return true
+    }
+    
+        
+        
+    
+
+    
     let _id: Int32
     let coord: Coordinate
     let country: String
     let name: String
 }
 
-struct Coordinate: Decodable {
+struct Coordinate: Codable {
     let lon: Double
     let lat: Double
 }

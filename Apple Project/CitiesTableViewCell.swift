@@ -7,12 +7,17 @@
 //
 
 import UIKit
+      //questionalbe code....come back to check if its valid for sending a coordinate to the detail view controller
+import CoreLocation
 
 
 class CitiesTableViewCell: UITableViewCell {
 
     @IBOutlet var countryLabel: UILabel!
-    @IBOutlet var cityLabel: UILabel!
+
+          //questionalbe code....come back to check if its valid for sending a coordinate to the detail view controller
+    var coordinate: Coordinate? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
