@@ -92,8 +92,9 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
             
         }
         currentCitiesArray = cities.filter({ city -> Bool in
-            //guard let text = searchBar.text else { return false}
-             return city.name.contains(searchText)
+            
+            return city.name.hasPrefix(searchText)
+            
         })
        tableView.reloadData()
     }
