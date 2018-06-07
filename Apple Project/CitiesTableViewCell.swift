@@ -13,7 +13,7 @@ import CoreLocation
 
 class CitiesTableViewCell: UITableViewCell {
 
-    @IBOutlet var countryLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
 
           //questionalbe code....come back to check if its valid for sending a coordinate to the detail view controller
     var coordinate: Coordinate? = nil

@@ -40,7 +40,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="countryLabel" destination="myo-UJ-KSJ" id="zmt-nY-atE"/>
+                                            <outlet property="locationLabel" destination="myo-UJ-KSJ" id="ICX-82-d31"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
