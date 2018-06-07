@@ -9,13 +9,18 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     var cities = [City]()
+    var currentCitiesArray = [City]() // updated array based on typed in search
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadJson()
+        setupSearchBar()
         
     }
 
@@ -72,6 +77,31 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 
-
+    func setupSearchBar(){
+        
+    }
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String){
+        print("text is being typed in")
+        guard !searchText.isEmpty else {
+            currentCitiesArray = cities
+            tableView.reloadData()
+            return
+            
+        }
+        
+        currentCitiesArray = cities.filter({ city -> Bool in
+            //guard let text = searchBar.text else { return false}
+             return city.name.contains(searchText)
+        })
+       tableView.reloadData()
+    }
+    
+    
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
+    }
 }
 
