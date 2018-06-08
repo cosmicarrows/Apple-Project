@@ -7,13 +7,16 @@
 //
 
 import UIKit
+//import CoreLocation framework in order to create longitude/latitude objects from JSON
 import CoreLocation
-
+//conform to UISearchBarDelegate protocol to  respond to user behavior entering in text for search of the tableView
 class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate,  UITableViewDelegate {
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    //create an array to hold the cities after decoded from the JSON
     var downloadedCities = [City]()
+    //create an array for cities once alphabetically sorted by city name and then country
     var alphabeticallySortedCities = [City]()
     
     override func viewDidLoad() {
@@ -57,6 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
         alphabeticallySortedCities = sortCitiesAlphabetically()
     }
     
+    //MARK: - TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      return alphabeticallySortedCities.count
     }
@@ -79,7 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    // MARK: - Search Bar
+    // MARK: - Search Bar Methods
     func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String){
         guard !searchText.isEmpty else {
             alphabeticallySortedCities = downloadedCities
