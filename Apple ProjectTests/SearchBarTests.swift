@@ -35,6 +35,18 @@ class SearchBarTests: XCTestCase {
         XCTAssertTrue(sut.searchBar.delegate is ViewController)
     }
     
+    func test_NumberOfSectionsInTableView_IsOne(){
+        let numberOfSections = sut.tableView.numberOfSections
+        XCTAssertEqual(numberOfSections, 1)
+    }
+    
+    func test_NumberOfElements_In_InitialCitiesArray_MatchesFilteredArrayForSearchBar(){
+        sut.tableView.dataSource = sut
+        XCTAssertEqual(sut.cities.count, sut.currentCitiesArray.count)
+    }
+    
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
