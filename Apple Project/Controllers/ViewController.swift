@@ -13,12 +13,13 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
-    var cities = [City]()
-    var currentCitiesArray = [City]() // updated array based on typed in search
+    var downloadedCities = [City]()
+    var alphabeticallySortedCities = [City]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadJson()
+        alphabeticallySortCities()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,33 +39,33 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
             let data = try Data.init(contentsOf: url)
 
             let downloadedPlots = try JSONDecoder().decode([City].self, from: data)
-    
-            let sortCitiesAlphabetically = {
-                downloadedPlots.sorted(by: { if $0.name != $1.name {
-                    return $0.name < $1.name
-                } else {
-                    return $0.country < $1.country
-                    }})
-            }
             
-            cities = sortCitiesAlphabetically()
-            
-            currentCitiesArray = cities
-
+            downloadedCities = downloadedPlots
         } catch  {
             print(error)
         }
     }
     
+    func alphabeticallySortCities(){
+        let sortCitiesAlphabetically = {
+            self.downloadedCities.sorted(by: { if $0.name != $1.name {
+                return $0.name < $1.name
+            } else {
+                return $0.country < $1.country
+                }})
+        }
+        alphabeticallySortedCities = sortCitiesAlphabetically()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return currentCitiesArray.count
+     return alphabeticallySortedCities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CitiesCell") as? CitiesTableViewCell else { return UITableViewCell()}
         
-        cell.locationLabel.text = "\(currentCitiesArray[indexPath.row].name), \(currentCitiesArray[indexPath.row].country)"
+        cell.locationLabel.text = "\(alphabeticallySortedCities[indexPath.row].name), \(alphabeticallySortedCities[indexPath.row].country)"
         
         return cell
     }
@@ -72,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "deatilViewController") as? DetailViewController
         
-        let selectedCity = currentCitiesArray[indexPath.row]
+        let selectedCity = alphabeticallySortedCities[indexPath.row]
         vc?.city = selectedCity
         
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -81,11 +82,11 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
     // MARK: - Search Bar
     func searchBar(_ searchBar: UISearchBar,textDidChange searchText: String){
         guard !searchText.isEmpty else {
-            currentCitiesArray = cities
+            alphabeticallySortedCities = downloadedCities
             tableView.reloadData()
             return
         }
-        currentCitiesArray = cities.filter({ city -> Bool in
+        alphabeticallySortedCities = downloadedCities.filter({ city -> Bool in
             return city.name.hasPrefix(searchText)
         })
        tableView.reloadData()
