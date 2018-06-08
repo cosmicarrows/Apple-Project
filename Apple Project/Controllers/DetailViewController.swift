@@ -18,13 +18,10 @@ class DetailViewController: UIViewController {
     let regionRadius: CLLocationDistance = 100
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        
-        
         guard let shownCity = city else { return }
-        
-        print(shownCity)
         
         let initialLocation = CLLocation.init(latitude: shownCity.coord.lat, longitude: shownCity.coord.lon)
         
@@ -44,6 +41,5 @@ class DetailViewController: UIViewController {
         
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
 
 }
