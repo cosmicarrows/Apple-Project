@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate,  UITableViewDelegate {
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
@@ -98,11 +98,17 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
         })
        tableView.reloadData()
     }
+
     
-    
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "deatilViewController") as? DetailViewController
         
+       let selectedCity = currentCitiesArray[indexPath.row]
+        vc?.city = selectedCity
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
+    
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E90D8AE720C88EC4009B3735 /* CitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D8AE620C88EC4009B3735 /* CitiesTableViewCell.swift */; };
 		E90D8AE920C890CD009B3735 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D8AE820C890CD009B3735 /* Cities.swift */; };
+		E90D8AED20C9F05B009B3735 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D8AEC20C9F059009B3735 /* DetailViewController.swift */; };
 		E9794AD420C754EF00CC308D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9794AD320C754EF00CC308D /* AppDelegate.swift */; };
 		E9794AD620C754EF00CC308D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9794AD520C754EF00CC308D /* ViewController.swift */; };
 		E9794AD920C754EF00CC308D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9794AD720C754EF00CC308D /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		E90D8AE620C88EC4009B3735 /* CitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewCell.swift; sourceTree = "<group>"; };
 		E90D8AE820C890CD009B3735 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		E90D8AEC20C9F059009B3735 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E9794AD020C754EF00CC308D /* Apple Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9794AD320C754EF00CC308D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9794AD520C754EF00CC308D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E90D8AEE20C9F0D3009B3735 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9794AD520C754EF00CC308D /* ViewController.swift */,
+				E90D8AE620C88EC4009B3735 /* CitiesTableViewCell.swift */,
+				E90D8AEC20C9F059009B3735 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E90D8AEF20C9F100009B3735 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9794AD720C754EF00CC308D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E90D8AF020C9F13E009B3735 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E90D8AE820C890CD009B3735 /* Cities.swift */,
+				E9794AF320C754FC00CC308D /* cities.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E9794AC720C754EF00CC308D = {
 			isa = PBXGroup;
 			children = (
@@ -84,13 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				E9794AD320C754EF00CC308D /* AppDelegate.swift */,
-				E9794AD520C754EF00CC308D /* ViewController.swift */,
-				E90D8AE620C88EC4009B3735 /* CitiesTableViewCell.swift */,
-				E9794AD720C754EF00CC308D /* Main.storyboard */,
-				E90D8AE820C890CD009B3735 /* Cities.swift */,
+				E90D8AEE20C9F0D3009B3735 /* Controllers */,
+				E90D8AEF20C9F100009B3735 /* View */,
+				E90D8AF020C9F13E009B3735 /* Model */,
 				E9794ADA20C754F100CC308D /* Assets.xcassets */,
 				E9794ADC20C754F100CC308D /* LaunchScreen.storyboard */,
-				E9794AF320C754FC00CC308D /* cities.json */,
 				E9794ADF20C754F100CC308D /* Info.plist */,
 			);
 			path = "Apple Project";
@@ -209,6 +236,7 @@
 			files = (
 				E90D8AE920C890CD009B3735 /* Cities.swift in Sources */,
 				E90D8AE720C88EC4009B3735 /* CitiesTableViewCell.swift in Sources */,
+				E90D8AED20C9F05B009B3735 /* DetailViewController.swift in Sources */,
 				E9794AD620C754EF00CC308D /* ViewController.swift in Sources */,
 				E9794AD420C754EF00CC308D /* AppDelegate.swift in Sources */,
 			);
