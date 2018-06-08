@@ -19,6 +19,8 @@ class SearchBarTests: XCTestCase {
         let viewController = storyboard.instantiateViewController(withIdentifier: "initialViewController")
         sut = viewController as! ViewController
         _ = sut.view
+        sut.tableView.dataSource = sut
+        sut.searchBar.delegate = sut
     }
     
     override func tearDown() {
@@ -35,23 +37,36 @@ class SearchBarTests: XCTestCase {
         XCTAssertTrue(sut.searchBar.delegate is ViewController)
     }
     
+    func testSUT_ConformsToSearchBarDelegateProtocol() {
+        XCTAssert(sut.conforms(to: UISearchBarDelegate.self))
+        XCTAssertTrue(self.sut.responds(to: #selector(sut.searchBar(_:textDidChange:))))
+        
+    }
+    
     func test_NumberOfSectionsInTableView_IsOne(){
         let numberOfSections = sut.tableView.numberOfSections
         XCTAssertEqual(numberOfSections, 1)
     }
     
-    func test_NumberOfElements_In_InitialCitiesArray_MatchesFilteredArrayForSearchBar(){
-        sut.tableView.dataSource = sut
-        XCTAssertEqual(sut.cities.count, sut.currentCitiesArray.count)
+    func test_NumberOfElements_In_InitialCitiesArray_MatchesAlphabeticallySortedArrayElements(){
+        XCTAssertEqual(sut.alphabeticallySortedCities.count, sut.downloadedCities.count)
     }
     
+    func test_NumberOfElements_with_Atlanta_Typed_In_SearchBar(){
+        sut.searchBar(sut.searchBar, textDidChange: "Atlanta")
+        XCTAssertEqual(sut.alphabeticallySortedCities.count, 4)
+        XCTAssertEqual(sut.alphabeticallySortedCities[0]._id, 4180439)
+    }
     
+    func test_NumberOfElements_with_Denver_Typed_In_SearchBar(){
+        sut.searchBar(sut.searchBar, textDidChange: "Denver")
+        XCTAssertEqual(sut.alphabeticallySortedCities.count, 7)
+        XCTAssertEqual(sut.alphabeticallySortedCities[4]._id, 4853799)
+    }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_NumberOfElements_with_Invalid_Element_Typed_In_SearchBar(){
+        sut.searchBar(sut.searchBar, textDidChange: "Califoric")
+        XCTAssertTrue(sut.alphabeticallySortedCities.isEmpty)
     }
     
 }

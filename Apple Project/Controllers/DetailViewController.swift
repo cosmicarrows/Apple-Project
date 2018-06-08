@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         guard let shownCity = city else { return }
-        
+                
         let initialLocation = CLLocation.init(latitude: shownCity.coord.lat, longitude: shownCity.coord.lon)
         
         

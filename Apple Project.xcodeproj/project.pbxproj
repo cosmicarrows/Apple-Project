@@ -16,7 +16,6 @@
 		E9794AD920C754EF00CC308D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9794AD720C754EF00CC308D /* Main.storyboard */; };
 		E9794ADB20C754F100CC308D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9794ADA20C754F100CC308D /* Assets.xcassets */; };
 		E9794ADE20C754F100CC308D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9794ADC20C754F100CC308D /* LaunchScreen.storyboard */; };
-		E9794AE920C754F100CC308D /* Apple_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9794AE820C754F100CC308D /* Apple_ProjectTests.swift */; };
 		E9794AF420C754FC00CC308D /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = E9794AF320C754FC00CC308D /* cities.json */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 		E9794ADD20C754F100CC308D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9794ADF20C754F100CC308D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9794AE420C754F100CC308D /* Apple ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Apple ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9794AE820C754F100CC308D /* Apple_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple_ProjectTests.swift; sourceTree = "<group>"; };
 		E9794AEA20C754F100CC308D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9794AF320C754FC00CC308D /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,7 +126,6 @@
 		E9794AE720C754F100CC308D /* Apple ProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				E9794AE820C754F100CC308D /* Apple_ProjectTests.swift */,
 				E9794AEA20C754F100CC308D /* Info.plist */,
 				E90D8AF120CA23D5009B3735 /* SearchBarTests.swift */,
 			);
@@ -249,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9794AE920C754F100CC308D /* Apple_ProjectTests.swift in Sources */,
 				E90D8AF220CA23D6009B3735 /* SearchBarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
